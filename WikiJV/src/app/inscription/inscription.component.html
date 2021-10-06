@@ -1,0 +1,33 @@
+<form #userForm="ngForm" (ngSubmit)="onFormSubmit(userForm)" class="row g-3 needs-validation" novalidate>
+    <div class="col-md-4 position-relative">
+      <label for="validationTooltip01" class="form-label">Prénom</label>
+      <input type="text" class="form-control" ngModel name="name" id="validationTooltip01" value="Mark" required>
+    </div>
+    <div class="col-md-4 position-relative">
+      <label for="validationTooltip02" class="form-label">Nom</label>
+      <input type="text" class="form-control" ngModel name="surname" id="validationTooltip02" value="Otto" required>
+    </div>
+    <div class="col-md-4 position-relative">
+      <label for="validationTooltipUsername" class="form-label">Pseudo</label>
+      <div class="input-group has-validation">
+        <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
+        <input type="text" class="form-control" ngModel name="nickname" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend" required>
+      </div>
+    </div>
+    <div class="col-md-6 position-relative">
+      <label for="validationTooltip03" class="form-label">Téléphone</label>
+      <input type="tel" class="form-control" ngModel name="tel" id="validationTooltip03" required>
+    </div>
+    <div class="col-md-3 position-relative">
+      <label for="validationTooltip04" class="form-label">Mot de passe</label>
+      <input type="password" class="form-control" ngModel name="mdp" id="validationTooltip04" required>
+    </div>
+    <div class="col-md-3 position-relative">
+      <label for="validationTooltip05" class="form-label">Confirmez votre mot de passe</label>
+      <input type="password" class="form-control" ngModel name="confirmMdp" id="validationTooltip05" required>
+    </div>
+    <div class="col-12">
+      <button class="btn btn-primary" type="submit">Submit form</button>
+      <button type="button" class="btn btn-warning" (click)="resetUserForm(userForm)">Rénitialiser</button>
+    </div>
+  </form>
