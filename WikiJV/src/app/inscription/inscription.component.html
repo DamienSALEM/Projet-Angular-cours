@@ -1,33 +1,46 @@
 <form #userForm="ngForm" (ngSubmit)="onFormSubmit(userForm)" class="row g-3 needs-validation" novalidate>
-    <div class="col-md-4 position-relative">
+    <div class="col-md-6 position-relative">
       <label for="validationTooltip01" class="form-label">Prénom</label>
-      <input type="text" class="form-control" ngModel name="name" id="validationTooltip01" value="Mark" required>
+      <input type="text" class="form-control" ngModel name="name" id="validationTooltip01" value="Mark" [formControl]="name" required>
+      <label *ngIf="name.invalid" [ngClass] = "'error'" class="required">Le prénom est obligatoire</label>
     </div>
-    <div class="col-md-4 position-relative">
+    <div class="col-md-6 position-relative">
       <label for="validationTooltip02" class="form-label">Nom</label>
-      <input type="text" class="form-control" ngModel name="surname" id="validationTooltip02" value="Otto" required>
+      <input type="text" class="form-control" ngModel name="surname" id="validationTooltip02" value="Otto" [formControl]="surname" required>
+      <label *ngIf="surname.invalid" [ngClass] = "'error'" class="required">Le nom est obligatoire</label>
+
     </div>
     <div class="col-md-4 position-relative">
       <label for="validationTooltipUsername" class="form-label">Pseudo</label>
       <div class="input-group has-validation">
         <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
-        <input type="text" class="form-control" ngModel name="nickname" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend" required>
+        <input type="text" class="form-control" ngModel name="nickname" [formControl]="nickname" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend" required>
       </div>
+      <label *ngIf="nickname.invalid" [ngClass]="'error'" class="required">Le pseudo est obligatoire</label>
+    </div>
+    <div class="col-md-4 position-relative">
+      <label for="validationTooltip13" class="form-label">Adresse Email</label>
+      <input type="email" class="form-control" ngModel name="email" [formControl]="email" id="validationTooltip13" required>
+      <label *ngIf="email.invalid" [ngClass] = "'error'" class="required">Entrez une adresse email valide</label>
+    </div>
+    <div class="col-md-4 position-relative">
+      <label for="validationTooltip03" class="form-label">Téléphone</label>
+      <input type="tel" class="form-control" ngModel name="tel" [formControl]="phone" id="validationTooltip03" required>
+      <label *ngIf="phone.invalid" [ngClass] = "'error'" class="required">Le téléphone est obligatoire</label>
     </div>
     <div class="col-md-6 position-relative">
-      <label for="validationTooltip03" class="form-label">Téléphone</label>
-      <input type="tel" class="form-control" ngModel name="tel" id="validationTooltip03" required>
-    </div>
-    <div class="col-md-3 position-relative">
       <label for="validationTooltip04" class="form-label">Mot de passe</label>
-      <input type="password" class="form-control" ngModel name="mdp" id="validationTooltip04" required>
+      <input type="password" class="form-control" ngModel name="mdp" [formControl]="mdp" id="validationTooltip04" required>
+      <label *ngIf="mdp.invalid" [ngClass] = "'error'" class="required">Le mot de passe est obligatoire</label>
     </div>
-    <div class="col-md-3 position-relative">
+    <div class="col-md-6 position-relative">
       <label for="validationTooltip05" class="form-label">Confirmez votre mot de passe</label>
-      <input type="password" class="form-control" ngModel name="confirmMdp" id="validationTooltip05" required>
+      <input type="password" class="form-control" ngModel name="confirmMdp" [formControl]="confirmMdp" id="validationTooltip05" required>
+      <label *ngIf="confirmMdp.invalid" [ngClass] = "'error'" class="required">Veuillez renseigner aussi ce champs</label>
     </div>
-    <div class="col-12">
+    <div class="col-6">
       <button class="btn btn-primary" type="submit">Submit form</button>
       <button type="button" class="btn btn-warning" (click)="resetUserForm(userForm)">Rénitialiser</button>
     </div>
+    
   </form>
