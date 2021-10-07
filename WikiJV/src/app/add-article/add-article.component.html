@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+        <form (ngSubmit)="onSubmit(formArticle)" #formArticle="ngForm">
+
+            <div class="form-group">
+                <label for="title">
+                    Titre de l'article
+                </label>
+                <input type="text" id="title" class="form-control" name="title" ngModel required>
+            </div>
+
+            <div class="form-group">
+                <label for="description">
+                    Description du jeu
+                </label>
+                <input type="text" id="description" class="form-control" name="description" ngModel required>
+            </div>
+
+
+            <div class="form-group">
+                <label for="resume">
+                    Resumé
+                </label>
+                <textarea class="form-control" name="resume" id="resume" cols="30" rows="10"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="categorie">
+                    Categorie
+                </label>
+                <select id="categorie" class="form-control" name="categorie" [ngModel]="defaultCategorie">
+                    <option value="rpg">RPG</option>
+                    <option value="action">Action</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary" [disabled]="formArticle.invalid">Publier</button>
+        </form>
+    </div>
+</div>
