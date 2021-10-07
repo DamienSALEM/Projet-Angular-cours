@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { InscriptionComponent } from './inscription/inscription.component';
 
 
@@ -15,7 +15,6 @@ import { InscriptionComponent } from './inscription/inscription.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     ReactiveFormsModule
   ],
   providers: [],

@@ -1,46 +1,72 @@
-<form #userForm="ngForm" (ngSubmit)="onFormSubmit(userForm)" class="row g-3 needs-validation" novalidate>
+<div class="register">
+  <form [formGroup]="registerForm" (ngSubmit)="onFormSubmit()" class="row g-3 needs-validation" novalidate>
+    <div class="register-title">
+      <h2 class="text-center">Inscription</h2>
+      <p class="fs-5 text-center fst-italic">Inscrivez vous pour découvrir plus de fonctionnalités!</p>
+    </div>
     <div class="col-md-6 position-relative">
       <label for="validationTooltip01" class="form-label">Prénom</label>
-      <input type="text" class="form-control" ngModel name="name" id="validationTooltip01" value="Mark" [formControl]="name" required>
-      <label *ngIf="name.invalid" [ngClass] = "'error'" class="required">Le prénom est obligatoire</label>
+      <input type="text" class="form-control" ngModel name="name" id="validationTooltip01" value="Mark" formControlName="name" [ngClass]="{'is-invalid': submitted && f.name.errors}"required>
+      <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+        <div *ngIf="f.name.errors?.required">Le prénom est obligatoire</div>
+      </div>    
     </div>
     <div class="col-md-6 position-relative">
       <label for="validationTooltip02" class="form-label">Nom</label>
-      <input type="text" class="form-control" ngModel name="surname" id="validationTooltip02" value="Otto" [formControl]="surname" required>
-      <label *ngIf="surname.invalid" [ngClass] = "'error'" class="required">Le nom est obligatoire</label>
-
+      <input type="text" class="form-control" ngModel name="surname" id="validationTooltip02" value="Otto" formControlName="surname" [ngClass]="{'is-invalid': submitted && f.surname.errors}"required>
+      
+      <div *ngIf="submitted && f.surname.errors" class="invalid-feedback">
+        <div *ngIf="f.surname.errors?.required">Le nom est obligatoire</div>
+      </div>
     </div>
     <div class="col-md-4 position-relative">
       <label for="validationTooltipUsername" class="form-label">Pseudo</label>
       <div class="input-group has-validation">
         <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
-        <input type="text" class="form-control" ngModel name="nickname" [formControl]="nickname" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend" required>
+        <input type="text" class="form-control" ngModel name="nickname" formControlName="nickname" id="validationTooltipUsername" [ngClass]="{'is-invalid': submitted && f.nickname.errors}" aria-describedby="validationTooltipUsernamePrepend" required>
       </div>
-      <label *ngIf="nickname.invalid" [ngClass]="'error'" class="required">Le pseudo est obligatoire</label>
+      <div *ngIf="submitted && f.surname.errors" class="invalid-feedback">
+        <div *ngIf="f.nickname.errors?.required">Le nom est obligatoire</div>
+      </div>
     </div>
     <div class="col-md-4 position-relative">
       <label for="validationTooltip13" class="form-label">Adresse Email</label>
-      <input type="email" class="form-control" ngModel name="email" [formControl]="email" id="validationTooltip13" required>
-      <label *ngIf="email.invalid" [ngClass] = "'error'" class="required">Entrez une adresse email valide</label>
+      <input type="email" class="form-control" ngModel name="email" formControlName="email" id="validationTooltip13" [ngClass]="{'is-invalid': submitted && f.email.errors}" required>
+      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+        <div *ngIf="f.email.errors?.required">L'email est obligatoire</div>
+        <div *ngIf="f.email.errors?.email">L'email est invalide</div>
+      </div>    
     </div>
     <div class="col-md-4 position-relative">
       <label for="validationTooltip03" class="form-label">Téléphone</label>
-      <input type="tel" class="form-control" ngModel name="tel" [formControl]="phone" id="validationTooltip03" required>
-      <label *ngIf="phone.invalid" [ngClass] = "'error'" class="required">Le téléphone est obligatoire</label>
+      <input type="tel" class="form-control" ngModel name="tel" formControlName="phone" id="validationTooltip03" [ngClass]="{'is-invalid': submitted && f.phone.errors}" required>
+
+      <div *ngIf="submitted && f.surname.errors" class="invalid-feedback">
+        <div *ngIf="f.phone.errors?.required">Le nom est obligatoire</div>
+      </div>
     </div>
     <div class="col-md-6 position-relative">
       <label for="validationTooltip04" class="form-label">Mot de passe</label>
-      <input type="password" class="form-control" ngModel name="mdp" [formControl]="mdp" id="validationTooltip04" required>
-      <label *ngIf="mdp.invalid" [ngClass] = "'error'" class="required">Le mot de passe est obligatoire</label>
+      <input type="password" class="form-control" ngModel name="mdp" formControlName="mdp" id="validationTooltip04" [ngClass]="{'is-invalid': submitted && f.mdp.errors}" required>
+      <div *ngIf="submitted && f.mdp.errors" class="invalid-feedback">
+        <div *ngIf="f.mdp.errors?.required">Le mot de passe est obligatoire</div>
+      </div>
     </div>
     <div class="col-md-6 position-relative">
       <label for="validationTooltip05" class="form-label">Confirmez votre mot de passe</label>
-      <input type="password" class="form-control" ngModel name="confirmMdp" [formControl]="confirmMdp" id="validationTooltip05" required>
-      <label *ngIf="confirmMdp.invalid" [ngClass] = "'error'" class="required">Veuillez renseigner aussi ce champs</label>
-    </div>
-    <div class="col-6">
-      <button class="btn btn-primary" type="submit">Submit form</button>
-      <button type="button" class="btn btn-warning" (click)="resetUserForm(userForm)">Rénitialiser</button>
+      <input type="password" class="form-control" ngModel name="confirmMdp" formControlName="confirmMdp" id="validationTooltip05" [ngClass]="{ 'is-invalid': submitted && f.confirmMdp.errors }" required>
+      <div *ngIf="submitted && f.confirmMdp.errors" class="invalid-feedback">
+      <div *ngIf="f.confirmMdp.errors?.required">
+        Vueillez compléter ce champs
+      </div>
+      <div *ngIf="f.confirmMdp.errors?.matching">
+        Les mots de passe ne correspondent pas
+      </div>
+    </div>   
+   </div>
+    <div class="col-12">
+      <button class="btn btn-primary submit" type="submit">S'inscrire</button>
     </div>
     
   </form>
+  </div>

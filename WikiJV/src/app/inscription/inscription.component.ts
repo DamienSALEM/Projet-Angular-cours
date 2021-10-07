@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, NgForm, Validators } from '@angular/forms';
-import { ConfirmedValidator } from '../confirm-validator';
+import { AbstractControl, FormBuilder, FormGroup, Validators, NgForm} from '@angular/forms';
+import Validation from '../validation';
 
 @Component({
   selector: 'app-inscription',
@@ -8,34 +8,42 @@ import { ConfirmedValidator } from '../confirm-validator';
   styleUrls: ['./inscription.component.css']
 })
 export class InscriptionComponent implements OnInit {
+  registerForm: FormGroup;
+  submitted = false;
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.registerForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      surname: ['', Validators.required],
+      nickname: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      phone: ['', [Validators.required, Validators.minLength(10)]],
+      mdp: ['', Validators.required],
+      confirmMdp: ['', Validators.required]
+  }, {
+      validator: [Validation.match('mdp', 'confirmMdp')]
+  });
   }
-
-  name = new FormControl('',Validators.required);
-  surname = new FormControl ('',Validators.required);
-  nickname = new FormControl ('',Validators.required);
-  email = new FormControl ('',[Validators.required, Validators.email])
-  phone = new FormControl('', [Validators.required, Validators.maxLength(10)]);
-  mdp = new FormControl ('', Validators.required);
-  confirmMdp = new FormControl ('', Validators.required);
   
 
+  get f() { return this.registerForm.controls; }
 
-  onFormSubmit(userForm:NgForm){
-    console.log(
-      this.name.value,
-      this.surname.value,
-      this.nickname.value,
-      this.phone.value,
-      this.mdp.value,
-      this.confirmMdp.value
-    )
+  onFormSubmit(){
+    this.submitted = true;
+
+        // stop here if form is invalid
+        if (this.registerForm.invalid) {
+            return;
+        }
+
+        // display form values on success
+        alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
   }
   resetUserForm(userForm: NgForm){
-    userForm.resetForm();
+    this.submitted = false;
+    this.registerForm.reset();
   }
 
 }
