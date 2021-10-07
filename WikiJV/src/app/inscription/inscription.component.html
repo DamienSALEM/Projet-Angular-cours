@@ -25,8 +25,8 @@
         <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
         <input type="text" class="form-control" ngModel name="nickname" formControlName="nickname" id="validationTooltipUsername" [ngClass]="{'is-invalid': submitted && f.nickname.errors}" aria-describedby="validationTooltipUsernamePrepend" required>
       </div>
-      <div *ngIf="submitted && f.surname.errors" class="invalid-feedback">
-        <div *ngIf="f.nickname.errors?.required">Le nom est obligatoire</div>
+      <div *ngIf="submitted && f.nickname.errors" class="invalid-feedback">
+        <div *ngIf="f.nickname.errors?.required">Le psuedo est obligatoire</div>
       </div>
     </div>
     <div class="col-md-4 position-relative">

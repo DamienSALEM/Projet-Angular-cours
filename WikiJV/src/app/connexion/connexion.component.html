@@ -1,0 +1,26 @@
+<div class="register">
+    <form [formGroup]="registerForm" (ngSubmit)="onFormSubmit()" class="row g-3 needs-validation" novalidate>
+      <div class="register-title">
+        <h2 class="text-center">Connexion</h2>
+      </div>
+      <div class="mb-3">
+        <label for="validationTooltip13" class="form-label">Adresse Email</label>
+        <input type="email" class="form-control" ngModel name="email" formControlName="email" id="validationTooltip13" [ngClass]="{'is-invalid': submitted && f.email.errors}" required>
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors?.required">L'email est obligatoire</div>
+          <div *ngIf="f.email.errors?.email">L'email est invalide</div>
+        </div>    
+      </div>
+      <div class="mb-3">
+        <label for="validationTooltip04" class="form-label">Mot de passe</label>
+        <input type="password" class="form-control" ngModel name="mdp" formControlName="mdp" id="validationTooltip04" [ngClass]="{'is-invalid': submitted && f.mdp.errors}" required>
+        <div *ngIf="submitted && f.mdp.errors" class="invalid-feedback">
+          <div *ngIf="f.mdp.errors?.required">Le mot de passe est obligatoire</div>
+        </div>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-primary submit" type="submit">Se connecter</button>
+      </div>
+      
+    </form>
+    </div>

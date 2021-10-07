@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InscriptionComponent } from './inscription/inscription.component';
+import { ConnexionComponent } from './connexion/connexion.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    InscriptionComponent
+    InscriptionComponent,
+    ConnexionComponent
   ],
   imports: [
     BrowserModule,
