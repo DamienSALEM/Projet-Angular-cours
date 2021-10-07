@@ -1,4 +1,4 @@
-import { User } from 'src/user/entity/user.entity';
+import { Users } from 'src/user/entity/user.entity';
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
@@ -22,7 +22,7 @@ export class Article {
   @Column()
   Image: string;
 
-  @ManyToOne(type => User, User => User.ID)
+  @ManyToOne(type => Users, User => User.ID)
   @JoinColumn()
-  User: User;
+  User: Users;
 }
