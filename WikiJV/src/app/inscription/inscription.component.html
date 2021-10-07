@@ -39,7 +39,11 @@
     </div>
     <div class="col-md-4 position-relative">
       <label for="validationTooltip03" class="form-label">Téléphone</label>
+<<<<<<< Updated upstream
       <input type="tel" class="form-control"  name="tel" formControlName="phone" id="validationTooltip03" [ngClass]="{'is-invalid': submitted && f.phone.errors}" required>
+=======
+      <input type="tel" class="form-control"  name="tel" formControlName="phone" id="validationTooltip03" [ngClass]="{'is-invalid': submitted && f.phone.errors}">
+>>>>>>> Stashed changes
 
       <div *ngIf="submitted && f.surname.errors" class="invalid-feedback">
         <div *ngIf="f.phone.errors?.required">Le nom est obligatoire</div>
@@ -67,6 +71,21 @@
     <div class="col-12">
       <button class="btn btn-primary submit" type="submit">S'inscrire</button>
     </div>
+<<<<<<< Updated upstream
     
   </form>
+=======
+
+
+    
+  </form>
+
+  <div class="alert alert-danger" *ngIf='isSignUpFailed'>
+    L'inscription a échouée, vueillez réessayer. Raison : {{ errorMessage }}
+  </div>
+
+  <div class="alert alert-success" *ngIf="isSuccessful">
+    Inscription réussi ! Bienvenue !
+  </div>
+>>>>>>> Stashed changes
   </div>

@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators, NgForm} from '@angular/forms';
 import Validation from '../validation';
+<<<<<<< Updated upstream
+=======
+import { AuthServiceService } from '../services/auth-service.service';
+
+>>>>>>> Stashed changes
 
 @Component({
   selector: 'app-inscription',
@@ -11,7 +16,11 @@ export class InscriptionComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
 
+<<<<<<< Updated upstream
   constructor(private formBuilder: FormBuilder) { }
+=======
+  constructor(private formBuilder: FormBuilder, private AuthServiceService : AuthServiceService) { }
+>>>>>>> Stashed changes
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
@@ -28,6 +37,13 @@ export class InscriptionComponent implements OnInit {
   }
   
 
+<<<<<<< Updated upstream
+=======
+  isSuccessful = false;
+  isSignUpFailed = false;
+  errorMessage = '';
+
+>>>>>>> Stashed changes
   get f() { return this.registerForm.controls; }
 
   onFormSubmit(){
@@ -45,9 +61,27 @@ export class InscriptionComponent implements OnInit {
         var user_email = this.registerForm.value['email'];
         var user_phone = this.registerForm.value['phone'];
         var user_mdp = this.registerForm.value['mdp'];
+<<<<<<< Updated upstream
         var user_confirmMdp = this.registerForm.value['confirmMdp'];
 
         console.log(user_name,user_surname, user_nickname, user_email, user_phone, user_mdp, user_confirmMdp);
+=======
+
+        this.AuthServiceService.registerUser(user_name, user_surname, user_nickname, user_email, user_phone, user_mdp).subscribe(
+          data => {
+            console.log(data);
+            this.isSuccessful = true;
+            this.isSignUpFailed =false;
+          },
+          err => {
+            this.errorMessage = err.message;
+            this.isSignUpFailed = true;
+
+            
+          }
+          
+        )
+>>>>>>> Stashed changes
 
 
   }
