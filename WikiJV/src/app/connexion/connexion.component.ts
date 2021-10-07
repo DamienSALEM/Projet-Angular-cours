@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators, NgForm} from '@angular/forms';
-<<<<<<< Updated upstream
-=======
 import { AuthServiceService } from '../services/auth-service.service';
->>>>>>> Stashed changes
 
 
 @Component({
@@ -15,11 +12,7 @@ export class ConnexionComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
 
-<<<<<<< Updated upstream
-  constructor(private formBuilder: FormBuilder) { }
-=======
   constructor(private formBuilder: FormBuilder, private AuthServiceService : AuthServiceService) { }
->>>>>>> Stashed changes
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
@@ -27,13 +20,10 @@ export class ConnexionComponent implements OnInit {
       mdp: ['', Validators.required]
     });
   }
-<<<<<<< Updated upstream
-=======
 
   isSuccessful = false;
   isLoginFailed = false;
   errorMessage = '';
->>>>>>> Stashed changes
   get f() { return this.registerForm.controls; }
 
   onFormSubmit(){
@@ -48,9 +38,6 @@ export class ConnexionComponent implements OnInit {
         var user_login = this.registerForm.value['email'];
         var user_mdp = this.registerForm.value['mdp'];
 
-<<<<<<< Updated upstream
-        console.log(user_login, user_mdp);
-=======
         this.AuthServiceService.loginUser(user_login, user_mdp).subscribe(
           data => {
             console.log(data);
@@ -62,7 +49,6 @@ export class ConnexionComponent implements OnInit {
             this.isLoginFailed = true;
           }
         )
->>>>>>> Stashed changes
 
 
   }
