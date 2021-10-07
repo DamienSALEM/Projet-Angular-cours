@@ -6,14 +6,14 @@
     </div>
     <div class="col-md-6 position-relative">
       <label for="validationTooltip01" class="form-label">Prénom</label>
-      <input type="text" class="form-control" ngModel name="name" id="validationTooltip01" value="Mark" formControlName="name" [ngClass]="{'is-invalid': submitted && f.name.errors}"required>
+      <input type="text" class="form-control"  name="name" id="validationTooltip01" value="Mark" formControlName="name" [ngClass]="{'is-invalid': submitted && f.name.errors}"required>
       <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
         <div *ngIf="f.name.errors?.required">Le prénom est obligatoire</div>
       </div>    
     </div>
     <div class="col-md-6 position-relative">
       <label for="validationTooltip02" class="form-label">Nom</label>
-      <input type="text" class="form-control" ngModel name="surname" id="validationTooltip02" value="Otto" formControlName="surname" [ngClass]="{'is-invalid': submitted && f.surname.errors}"required>
+      <input type="text" class="form-control"  name="surname" id="validationTooltip02" value="Otto" formControlName="surname" [ngClass]="{'is-invalid': submitted && f.surname.errors}"required>
       
       <div *ngIf="submitted && f.surname.errors" class="invalid-feedback">
         <div *ngIf="f.surname.errors?.required">Le nom est obligatoire</div>
@@ -23,7 +23,7 @@
       <label for="validationTooltipUsername" class="form-label">Pseudo</label>
       <div class="input-group has-validation">
         <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
-        <input type="text" class="form-control" ngModel name="nickname" formControlName="nickname" id="validationTooltipUsername" [ngClass]="{'is-invalid': submitted && f.nickname.errors}" aria-describedby="validationTooltipUsernamePrepend" required>
+        <input type="text" class="form-control"  name="nickname" formControlName="nickname" id="validationTooltipUsername" [ngClass]="{'is-invalid': submitted && f.nickname.errors}" aria-describedby="validationTooltipUsernamePrepend" required>
       </div>
       <div *ngIf="submitted && f.nickname.errors" class="invalid-feedback">
         <div *ngIf="f.nickname.errors?.required">Le psuedo est obligatoire</div>
@@ -31,7 +31,7 @@
     </div>
     <div class="col-md-4 position-relative">
       <label for="validationTooltip13" class="form-label">Adresse Email</label>
-      <input type="email" class="form-control" ngModel name="email" formControlName="email" id="validationTooltip13" [ngClass]="{'is-invalid': submitted && f.email.errors}" required>
+      <input type="email" class="form-control"  name="email" formControlName="email" id="validationTooltip13" [ngClass]="{'is-invalid': submitted && f.email.errors}" required>
       <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
         <div *ngIf="f.email.errors?.required">L'email est obligatoire</div>
         <div *ngIf="f.email.errors?.email">L'email est invalide</div>
@@ -39,7 +39,7 @@
     </div>
     <div class="col-md-4 position-relative">
       <label for="validationTooltip03" class="form-label">Téléphone</label>
-      <input type="tel" class="form-control" ngModel name="tel" formControlName="phone" id="validationTooltip03" [ngClass]="{'is-invalid': submitted && f.phone.errors}" required>
+      <input type="tel" class="form-control"  name="tel" formControlName="phone" id="validationTooltip03" [ngClass]="{'is-invalid': submitted && f.phone.errors}" required>
 
       <div *ngIf="submitted && f.surname.errors" class="invalid-feedback">
         <div *ngIf="f.phone.errors?.required">Le nom est obligatoire</div>
@@ -47,14 +47,14 @@
     </div>
     <div class="col-md-6 position-relative">
       <label for="validationTooltip04" class="form-label">Mot de passe</label>
-      <input type="password" class="form-control" ngModel name="mdp" formControlName="mdp" id="validationTooltip04" [ngClass]="{'is-invalid': submitted && f.mdp.errors}" required>
+      <input type="password" class="form-control"  name="mdp" formControlName="mdp" id="validationTooltip04" [ngClass]="{'is-invalid': submitted && f.mdp.errors}" required>
       <div *ngIf="submitted && f.mdp.errors" class="invalid-feedback">
         <div *ngIf="f.mdp.errors?.required">Le mot de passe est obligatoire</div>
       </div>
     </div>
     <div class="col-md-6 position-relative">
       <label for="validationTooltip05" class="form-label">Confirmez votre mot de passe</label>
-      <input type="password" class="form-control" ngModel name="confirmMdp" formControlName="confirmMdp" id="validationTooltip05" [ngClass]="{ 'is-invalid': submitted && f.confirmMdp.errors }" required>
+      <input type="password" class="form-control"  name="confirmMdp" formControlName="confirmMdp" id="validationTooltip05" [ngClass]="{ 'is-invalid': submitted && f.confirmMdp.errors }" required>
       <div *ngIf="submitted && f.confirmMdp.errors" class="invalid-feedback">
       <div *ngIf="f.confirmMdp.errors?.required">
         Vueillez compléter ce champs
