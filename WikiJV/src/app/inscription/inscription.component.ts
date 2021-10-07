@@ -39,7 +39,17 @@ export class InscriptionComponent implements OnInit {
         }
 
         // display form values on success
-        alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
+        var user_name = this.registerForm.value['name'];
+        var user_surname = this.registerForm.value['surname'];
+        var user_nickname = this.registerForm.value['nickname'];
+        var user_email = this.registerForm.value['email'];
+        var user_phone = this.registerForm.value['phone'];
+        var user_mdp = this.registerForm.value['mdp'];
+        var user_confirmMdp = this.registerForm.value['confirmMdp'];
+
+        console.log(user_name,user_surname, user_nickname, user_email, user_phone, user_mdp, user_confirmMdp);
+
+
   }
   resetUserForm(userForm: NgForm){
     this.submitted = false;

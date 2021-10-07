@@ -30,7 +30,12 @@ export class ConnexionComponent implements OnInit {
         }
 
         // display form values on success
-        alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
+        var user_login = this.registerForm.value['email'];
+        var user_mdp = this.registerForm.value['mdp'];
+
+        console.log(user_login, user_mdp);
+
+
   }
   resetUserForm(userForm: NgForm){
     this.submitted = false;
