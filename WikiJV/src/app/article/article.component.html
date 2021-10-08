@@ -1,0 +1,9 @@
+<li class="list-group-item">
+    <h3> titre: {{ titleA }} </h3>
+    <p> categorie: {{ categorie }} </p>
+    <p> description: {{ description}} </p>
+    <button class="btn btn-info btn-sm"><a [routerLink]="[id]">Details</a></button>
+    <button class="btn btn-danger btn-sm" (click)="OnDelete()">Supprimer</button>
+    <button class="btn btn-warning btn-sm">Editer</button>
+    <!-- <p> resumé: {{resume}} </p>  -->
+</li>

@@ -1,0 +1,22 @@
+<!-- <li class="list-group-item">
+    <h3> titre: {{ titleA }} </h3>
+    <p> categorie: {{ categorie }} </p>
+    <p> description: {{ description}} </p>
+    <p> resumé: {{resume}} </p>
+</li> -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h2>List des articles</h2>
+            <ul class="list-group">
+                <app-article *ngFor="let article of listArticles; let i= index" [indexArticle]="i"
+                    [titleA]="article.title" [description]="article.description" [resume]="article.resume"
+                    [categorie]="article.categorie" [id]="article.id">
+
+                </app-article>
+            </ul>
+            <!-- <button class="btn btn-danger" (click)="OnDelete()"></button> -->
+        </div>
+    </div>
+</div>
