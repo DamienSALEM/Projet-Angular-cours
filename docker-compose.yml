@@ -1,0 +1,10 @@
+version: '3.5'
+services:
+  wikijv:
+    build: ./WikiJV
+    command: npm install && ng serve
+    expose: 42000
+  projet-angular-cours-apinest-js:
+    build: ./projet-angular-cours-apinest-js
+    command: npm install && npm run start
+    expose: 3306
