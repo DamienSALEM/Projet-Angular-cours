@@ -30,6 +30,14 @@ const appRoutes: Routes = [
   { path: 'notfound', component: SnoFoundComponent },
   { path: '**', redirectTo: '/notfound' }
 ]
+import { FooterComponent } from './footer/footer.component';
+import { LeftsidebarComponent } from './leftsidebar/leftsidebar.component';
+import { FeedComponent } from './feed/feed.component';
+import { HeaderComponent } from './header/header.component';
+import { AboutComponent } from './about/about.component';
+import { ContactsComponent } from './contacts/contacts.component';
+import { HomeComponent } from './home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -41,7 +49,15 @@ const appRoutes: Routes = [
     ArticleViewComponent,
     SingleArticleComponent,
     SnoFoundComponent,
-    UpdateArticleComponent
+    UpdateArticleComponent,
+    FooterComponent,
+    LeftsidebarComponent,
+    FeedComponent,
+    HeaderComponent,
+    AboutComponent,
+    ContactsComponent,
+    HomeComponent,
+    ArticleComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +68,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
-    ArticleService
+    ArticleService,
+    BrowserAnimationsModule
   ],
   bootstrap: [AppComponent]
 })
