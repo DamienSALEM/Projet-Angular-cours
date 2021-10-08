@@ -1,4 +1,4 @@
-import { Article } from 'src/article/entity/article.entity';
+import { Articles } from 'src/article/entity/article.entity';
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
@@ -7,9 +7,9 @@ export class Upvote {
   @PrimaryGeneratedColumn()
   ID: number;
 
-  @ManyToOne(type=> Article, Article => Article.ID)
+  @ManyToOne(type=> Articles, Article => Article.ID)
   @JoinColumn()
-  Article: Article;
+  Article: Articles;
 
   @Column({nullable: false})
   Upvote: number;

@@ -21,6 +21,14 @@ export class UserService {
     return await this.usersRepository.save(user);
   }
 
+  async update(id: string, updateUserDto: UserDto): Promise<void> {
+    await this.usersRepository.update(id, updateUserDto);
+  }
+
+  async remove(id: string): Promise<void> {
+    await this.usersRepository.delete(id);
+  }
+  
   async findByUserName(User_name: string): Promise<Users> {
     return this.usersRepository.findOne({User_name});
   }

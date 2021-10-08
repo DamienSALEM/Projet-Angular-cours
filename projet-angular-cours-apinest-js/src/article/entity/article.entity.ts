@@ -2,7 +2,7 @@ import { Users } from 'src/user/entity/user.entity';
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class Article {
+export class Articles {
 
   @PrimaryGeneratedColumn()
   ID: number;
@@ -23,6 +23,6 @@ export class Article {
   Image: string;
 
   @ManyToOne(type => Users, User => User.ID)
-  @JoinColumn()
-  User: Users;
+  @JoinColumn({name: "ID"})
+  Users: Users;
 }

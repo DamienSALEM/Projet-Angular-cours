@@ -1,4 +1,4 @@
-import { Article } from 'src/article/entity/article.entity';
+import { Articles } from 'src/article/entity/article.entity';
 import { Category } from 'src/category/Entity/category.entity';
 import { Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
@@ -8,9 +8,9 @@ export class CatsPerArticles {
   @PrimaryGeneratedColumn()
   ID: number;
 
-  @ManyToOne(type => Article, Article => Article.ID)
+  @ManyToOne(type => Articles, Article => Article.ID)
   @JoinColumn()
-  Article: Article;
+  Article: Articles;
 
   @ManyToOne(type => Category, Category => Category.ID)
   @JoinColumn()

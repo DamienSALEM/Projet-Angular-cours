@@ -1,9 +1,8 @@
-import { Controller, Get, Post, Res, UseGuards, Request, Logger, Body } from '@nestjs/common';
+import { Controller, Post, UseGuards, Request, Logger, Body, Patch, Delete, Param } from '@nestjs/common';
 import { AppService } from './app.service';
 import { LocalAuthGuard } from './auth/local-auth.guard';
 import { AuthService } from './auth/auth.service';
 import { UserService } from './user/user.service';
-import { Response } from 'express';
 import { UserDto } from './user/dto/user.dto';
 
 @Controller()
@@ -19,10 +18,21 @@ export class AppController {
   @Post('login')
   async login(@Request() req) {
     const auth = await this.authService.login(req.user);
+    return {auth};
   }
 
   @Post('register')
   async register(@Body() userDto: UserDto){
     return await this.userService.create(userDto)
+  }
+
+  @Patch('/:id')
+  async update(@Param('id') id: string, @Body() userDto: UserDto): Promise<void> {
+    return this.userService.update(id, userDto);
+  }
+
+  @Delete('/:id')
+  async remove(@Param('id') id: string): Promise<void> {
+    return this.userService.remove(id);
   }
 }
