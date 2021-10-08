@@ -49,6 +49,7 @@ export class ArticleService {
         this.listArticles.forEach((article, index) => {
             if (article.id == key) this.listArticles.splice(index, 1)
         });
+        this.emitArticleSubject();
     }
 
     emitArticleSubject() {
