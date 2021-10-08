@@ -1,8 +1,17 @@
 <h3 class="title text-h3">Derniers articles publiés</h3>
 
+<mat-card class="card" *ngFor="let item of items" [id]="item.id">
+        <mat-card-header>
+                <mat-card-title>{{item.title}}</mat-card-title>
+                    
+        </mat-card-header>
+        <mat-card-content>
+                <p>{{item.text}}</p>
+        </mat-card-content>
 
-<div class="card" *ngFor="let article of articles">
-    <p>{{article.title}}</p>
-    <p>{{article.text}}</p>
-
-</div>
+        <mat-card-actions  (click)="ShowArticle();">
+                <button type="button" class="btn">Voir l'article</button>
+        </mat-card-actions>
+</mat-card>
+        
+   
