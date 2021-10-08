@@ -1,0 +1,32 @@
+<div class="register">
+    <form [formGroup]="registerForm" (ngSubmit)="onFormSubmit()" class="row g-3 needs-validation" novalidate>
+      <div class="register-title">
+        <h2 class="text-center">Connexion</h2>
+      </div>
+      <div class="mb-3">
+        <label for="validationTooltipUsername" class="form-label">Pseudo</label>
+        <div class="input-group has-validation">
+          <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
+          <input type="text" class="form-control"  name="nickname" formControlName="nickname" id="validationTooltipUsername" [ngClass]="{'is-invalid': submitted && f.nickname.errors}" aria-describedby="validationTooltipUsernamePrepend" required>
+        </div>
+        <div *ngIf="submitted && f.nickname.errors" class="invalid-feedback">
+          <div *ngIf="f.nickname.errors?.required">Le psuedo est obligatoire</div>
+        </div>   
+      </div>
+      <div class="mb-3">
+        <label for="validationTooltip04" class="form-label">Mot de passe</label>
+        <input type="password" class="form-control" ngModel name="mdp" formControlName="mdp" id="validationTooltip04" [ngClass]="{'is-invalid': submitted && f.mdp.errors}" required>
+        <div *ngIf="submitted && f.mdp.errors" class="invalid-feedback">
+          <div *ngIf="f.mdp.errors?.required">Le mot de passe est obligatoire</div>
+        </div>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-primary submit" type="submit">Se connecter</button>
+      </div>
+      
+    </form>
+
+  <div class="alert alert-success" *ngIf="isSuccessful">
+    Connexion réussie
+  </div>
+    </div>
