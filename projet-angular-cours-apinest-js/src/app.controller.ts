@@ -18,6 +18,7 @@ export class AppController {
   @Post('login')
   async login(@Request() req) {
     const auth = await this.authService.login(req.user);
+    return {auth};
   }
 
   @Post('register')
