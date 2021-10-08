@@ -20,6 +20,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SingleArticleComponent } from './single-article/single-article.component';
 import { SnoFoundComponent } from './sno-found/sno-found.component';
 import { UpdateArticleComponent } from './update-article/update-article.component';
+import {MatCardModule} from '@angular/material/card'
 
 const appRoutes: Routes = [
   { path: 'articles', component: ArticleViewComponent },
@@ -38,6 +39,7 @@ import { AboutComponent } from './about/about.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -65,6 +67,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    MatCardModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [

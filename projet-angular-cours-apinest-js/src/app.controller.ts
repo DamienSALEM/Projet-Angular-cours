@@ -4,16 +4,13 @@ import { LocalAuthGuard } from './auth/local-auth.guard';
 import { AuthService } from './auth/auth.service';
 import { UserService } from './user/user.service';
 import { UserDto } from './user/dto/user.dto';
-import { get } from 'http';
-import { CategoryService } from './category/category.service';
 
 @Controller()
 export class AppController {
   constructor(
     private readonly appService: AppService,
     private authService: AuthService,
-    private userService: UserService,
-    private categoryService: CategoryService
+    private userService: UserService
     ) {}
     private readonly logger = new Logger(AppController.name);
 
