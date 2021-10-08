@@ -42,7 +42,9 @@ export class ConnexionComponent implements OnInit {
 
         this.AuthServiceService.loginUser(user_login, user_mdp).subscribe(
           data => {
-            console.log(data)
+            console.log(data);
+            this.TokenStorageService.saveToken(data);
+            this.TokenStorageService.saveUser(user_login);
             this.isSuccessful = true;
             this.isLoginFailed =false;
           },
