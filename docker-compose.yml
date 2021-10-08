@@ -2,9 +2,11 @@ version: '3.5'
 services:
   wikijv:
     build: ./WikiJV
-    command: npm install && ng serve
-    expose: 42000
+    command: "ng serve --host 0.0.0.0 --port 4200"
+    ports: 
+      - 42000:4200
   projet-angular-cours-apinest-js:
     build: ./projet-angular-cours-apinest-js
-    command: npm install && npm run start
-    expose: 3306
+    command: "npm run start"
+    ports: 
+      - 3000:3000
