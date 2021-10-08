@@ -13,12 +13,9 @@
 .d-flex{
     margin-top: 2%;
 }
-
-  /* Responsive Styles */
-  @media screen and (max-width: 767px) {
-    
-  }
-
-  @media screen and (max-width: 575px) {
-    
-  }
+.row{
+    width: 80%;
+    height: 80%;
+    margin-left: 10%;
+    margin-right: 5px;
+}
