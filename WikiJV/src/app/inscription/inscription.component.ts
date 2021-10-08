@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators, NgForm} from '@angular/forms';
 import Validation from '../validation';
 import { AuthServiceService } from '../services/auth-service.service';
+import { TokenStorageService } from '../services/token-storage-service.service';
 
 
 @Component({
@@ -12,8 +13,9 @@ import { AuthServiceService } from '../services/auth-service.service';
 export class InscriptionComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
+  currentUser : any;
 
-  constructor(private formBuilder: FormBuilder, private AuthServiceService : AuthServiceService) { }
+  constructor(private formBuilder: FormBuilder, private AuthServiceService : AuthServiceService, private TokenStorageService : TokenStorageService) { }
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
@@ -57,6 +59,11 @@ export class InscriptionComponent implements OnInit {
             console.log(data);
             this.isSuccessful = true;
             this.isSignUpFailed =false;
+
+          },
+          err =>{
+            this.errorMessage = err.message;
+            this.isSignUpFailed = true
           }
           
         )

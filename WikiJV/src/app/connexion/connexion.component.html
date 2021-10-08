@@ -4,12 +4,14 @@
         <h2 class="text-center">Connexion</h2>
       </div>
       <div class="mb-3">
-        <label for="validationTooltip13" class="form-label">Adresse Email</label>
-        <input type="email" class="form-control" ngModel name="email" formControlName="email" id="validationTooltip13" [ngClass]="{'is-invalid': submitted && f.email.errors}" required>
-        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-          <div *ngIf="f.email.errors?.required">L'email est obligatoire</div>
-          <div *ngIf="f.email.errors?.email">L'email est invalide</div>
-        </div>    
+        <label for="validationTooltipUsername" class="form-label">Pseudo</label>
+        <div class="input-group has-validation">
+          <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
+          <input type="text" class="form-control"  name="nickname" formControlName="nickname" id="validationTooltipUsername" [ngClass]="{'is-invalid': submitted && f.nickname.errors}" aria-describedby="validationTooltipUsernamePrepend" required>
+        </div>
+        <div *ngIf="submitted && f.nickname.errors" class="invalid-feedback">
+          <div *ngIf="f.nickname.errors?.required">Le psuedo est obligatoire</div>
+        </div>   
       </div>
       <div class="mb-3">
         <label for="validationTooltip04" class="form-label">Mot de passe</label>

@@ -2,7 +2,7 @@
   <form [formGroup]="registerForm" (ngSubmit)="onFormSubmit()" class="row g-3 needs-validation" novalidate>
     <div class="register-title">
       <h2 class="text-center">Inscription</h2>
-      <p class="fs-5 text-center fst-italic">Inscrivez vous pour découvrir plus de fonctionnalités!</p>
+      <p class="fs-5 text-center fst-italic">Inscrivez vous pour découvrir plus de fonctionnalités! {{currentUser}}</p>
     </div>
     <div class="col-md-6 position-relative">
       <label for="validationTooltip01" class="form-label">Prénom</label>

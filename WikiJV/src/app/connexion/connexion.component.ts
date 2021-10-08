@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators, NgForm} from '@angular/forms';
 import { AuthServiceService } from '../services/auth-service.service';
+import { TokenStorageService } from '../services/token-storage-service.service';
+
 
 
 @Component({
@@ -12,11 +14,11 @@ export class ConnexionComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder, private AuthServiceService : AuthServiceService) { }
+  constructor(private formBuilder: FormBuilder, private AuthServiceService : AuthServiceService, private TokenStorageService : TokenStorageService) { }
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
+      nickname: ['', Validators.required],
       mdp: ['', Validators.required]
     });
   }
@@ -40,6 +42,7 @@ export class ConnexionComponent implements OnInit {
 
         this.AuthServiceService.loginUser(user_login, user_mdp).subscribe(
           data => {
+            this.TokenStorageService.saveUser(data.User_name);
             console.log(data);
             this.isSuccessful = true;
             this.isLoginFailed =false;
