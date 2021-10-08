@@ -37,13 +37,12 @@ export class ConnexionComponent implements OnInit {
         }
 
         // display form values on success
-        var user_login = this.registerForm.value['email'];
+        var user_login = this.registerForm.value['nickname'];
         var user_mdp = this.registerForm.value['mdp'];
 
         this.AuthServiceService.loginUser(user_login, user_mdp).subscribe(
           data => {
-            this.TokenStorageService.saveUser(data.User_name);
-            console.log(data);
+            console.log(data)
             this.isSuccessful = true;
             this.isLoginFailed =false;
           },
